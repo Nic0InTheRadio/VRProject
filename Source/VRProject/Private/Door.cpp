@@ -2,6 +2,8 @@
 
 
 #include "Door.h"
+#include "FCTween.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ADoor::ADoor()
@@ -13,6 +15,37 @@ ADoor::ADoor()
 
 void ADoor::OpenDoor()
 {
-	
+	if (IsAlreadyOpened) return;
+
+	IsAlreadyOpened = true;
+	FRotator Rotator = GetActorRotation();
+	FCTween::Play(
+		0.f, 90.f,
+		[&](float t)
+		{
+			Rotator.Yaw = t;
+			Rotator.Pitch = 0.f;
+			Rotator.Roll = 0.f;
+			SetActorRotation(Rotator);
+		},
+		1.f, EFCEase::InOutSine);
+}
+
+void ADoor::CloseDoor()
+{
+	if (!IsAlreadyOpened) return;
+
+	IsAlreadyOpened = false;
+	FRotator Rotator = GetActorRotation();
+	FCTween::Play(
+		90.f, 0.f,
+		[&](float t)
+		{
+			Rotator.Yaw = t;
+			Rotator.Pitch = 0.f;
+			Rotator.Roll = 0.f;
+			SetActorRotation(Rotator);
+		},
+		1.f, EFCEase::InOutSine);
 }
 
