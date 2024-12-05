@@ -12,14 +12,14 @@ ATriggerZoneActor::ATriggerZoneActor()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	TriggerZone = CreateDefaultSubobject<UBoxComponent>(TEXT("TriggerZone"));
+	/*TriggerZone = CreateDefaultSubobject<UBoxComponent>(TEXT("TriggerZone"));
 	RootComponent = TriggerZone;
 
 	TriggerZone->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	TriggerZone->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
 	TriggerZone->SetGenerateOverlapEvents(true);
 
-	TriggerZone->OnComponentBeginOverlap.AddDynamic(this, &ATriggerZoneActor::OnTriggerEnter);
+	TriggerZone->OnComponentBeginOverlap.AddDynamic(this, &ATriggerZoneActor::OnTriggerEnter);*/
 }
 
 // Called when the game starts or when spawned
