@@ -31,9 +31,9 @@ void ADoor::OpenDoor()
 		1.f, EFCEase::InOutSine);
 }
 
-void ADoor::CloseDoor()
+bool ADoor::CloseDoor()
 {
-	if (!IsAlreadyOpened) return;
+	if (!IsAlreadyOpened) return false;
 
 	IsAlreadyOpened = false;
 	FRotator Rotator = GetActorRotation();
@@ -47,5 +47,6 @@ void ADoor::CloseDoor()
 			SetActorRotation(Rotator);
 		},
 		1.f, EFCEase::InOutSine);
+	return true;
 }
 

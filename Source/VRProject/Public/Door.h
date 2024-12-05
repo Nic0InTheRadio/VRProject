@@ -22,6 +22,6 @@ public:
 	void OpenDoor();
 
 	UFUNCTION(BlueprintCallable)
-	void CloseDoor();
+	bool CloseDoor();
 
 };
