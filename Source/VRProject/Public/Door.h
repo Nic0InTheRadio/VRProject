@@ -23,5 +23,5 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void CloseDoor();
-
+	
 };
