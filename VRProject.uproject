@@ -7,10 +7,21 @@
 		{
 			"Name": "VRProject",
 			"Type": "Runtime",
-			"LoadingPhase": "Default"
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
 		}
 	],
 	"Plugins": [
+		{
+			"Name": "VirtualScouting",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Win64",
+				"Linux"
+			]
+		},
 		{
 			"Name": "OpenXR",
 			"Enabled": true,
