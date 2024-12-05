@@ -10,8 +10,6 @@ UChemlightLuminanceCapacity::UChemlightLuminanceCapacity()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
 }
 
 
@@ -19,9 +17,6 @@ UChemlightLuminanceCapacity::UChemlightLuminanceCapacity()
 void UChemlightLuminanceCapacity::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
-	
 }
 
 
@@ -40,12 +35,12 @@ void UChemlightLuminanceCapacity::UpdateIntensity(float DeltaTime)
 	{
 		if (IsShaken)
 		{
-			CurrentIntensity +=  DeltaTime * IntensityAddedPerSecondShaken;
+			CurrentIntensityPercentage +=  DeltaTime * IntensityAddedPerSecondShaken;
 		} else
 		{
-			CurrentIntensity -= DeltaTime * IntensityLostPerSecond;
+			CurrentIntensityPercentage -= DeltaTime * IntensityLostPerSecond;
 		}
-		CurrentIntensity = FMath::Clamp(CurrentIntensity, 0.0f, MaxIntensity);
+		CurrentIntensityPercentage = FMath::Clamp(CurrentIntensityPercentage, 0.0f, 100.0f);
 	}
 }
 
