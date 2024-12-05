@@ -22,17 +22,14 @@ protected:
 
 public:
 
-	UPROPERTY(EditAnywhere)
-	float MaxIntensity = 1000.f;
-
 	UPROPERTY(BlueprintReadOnly)
-	float CurrentIntensity = 500.f;
+	float CurrentIntensityPercentage = 50.f;
+	
+	UPROPERTY(EditAnywhere)
+	float IntensityAddedPerSecondShaken = 25.f;
 
 	UPROPERTY(EditAnywhere)
-	float IntensityAddedPerSecondShaken = 100.f;
-
-	UPROPERTY(EditAnywhere)
-	float IntensityLostPerSecond = 50.f;
+	float IntensityLostPerSecond = 10.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool IsShaken = false;
