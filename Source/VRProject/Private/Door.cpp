@@ -15,38 +15,44 @@ ADoor::ADoor()
 
 void ADoor::OpenDoor()
 {
+	//USceneComponent* pivotScene = FindComponentByClass<USceneComponent>();
 	if (IsAlreadyOpened) return;
-
+	//if (!pivotScene) return;
+	
 	IsAlreadyOpened = true;
-	FRotator Rotator = GetActorRotation();
-	FCTween::Play(
-		0.f, 90.f,
-		[&](float t)
-		{
-			Rotator.Yaw = t;
-			Rotator.Pitch = 0.f;
-			Rotator.Roll = 0.f;
-			SetActorRotation(Rotator);
-		},
-		1.f, EFCEase::InOutSine);
+	OnDoorOpened();
+	// FRotator Rotator = pivotScene->GetRelativeRotation();
+	// FCTween::Play(
+	// 	0.f, 90.f,
+	// 	[&](float t)
+	// 	{
+	// 		Rotator.Yaw = t;
+	// 		Rotator.Pitch = 0.f;
+	// 		Rotator.Roll = 0.f;
+	// 		pivotScene->SetRelativeRotation(Rotator);
+	// 	},
+	// 	1.f, EFCEase::InOutSine);
 }
 
 bool ADoor::CloseDoor()
 {
+	//USceneComponent* pivotScene = FindComponentByClass<USceneComponent>();
 	if (!IsAlreadyOpened) return false;
-
+	//if (!pivotScene) return false;
+	
 	IsAlreadyOpened = false;
-	FRotator Rotator = GetActorRotation();
-	FCTween::Play(
-		90.f, 0.f,
-		[&](float t)
-		{
-			Rotator.Yaw = t;
-			Rotator.Pitch = 0.f;
-			Rotator.Roll = 0.f;
-			SetActorRotation(Rotator);
-		},
-		1.f, EFCEase::InOutSine);
+	OnDoorClosed();
+	// FRotator Rotator = pivotScene->GetRelativeRotation();
+	// FCTween::Play(
+	// 	90.f, 0.f,
+	// 	[&](float t)
+	// 	{
+	// 		Rotator.Yaw = t;
+	// 		Rotator.Pitch = 0.f;
+	// 		Rotator.Roll = 0.f;
+	// 		pivotScene->SetRelativeRotation(Rotator);
+	// 	},
+	// 	1.f, EFCEase::InOutSine);
 	return true;
 }
 
