@@ -7,19 +7,10 @@
 
 
 // Sets default values
-ATriggerZoneActor::ATriggerZoneActor()
+ATriggerZoneActor::ATriggerZoneActor(): TriggerSound(nullptr), TriggerAnimation(nullptr)
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	/*TriggerZone = CreateDefaultSubobject<UBoxComponent>(TEXT("TriggerZone"));
-	RootComponent = TriggerZone;
-
-	TriggerZone->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
-	TriggerZone->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Overlap);
-	TriggerZone->SetGenerateOverlapEvents(true);
-
-	TriggerZone->OnComponentBeginOverlap.AddDynamic(this, &ATriggerZoneActor::OnTriggerEnter);*/
 }
 
 // Called when the game starts or when spawned
@@ -31,10 +22,7 @@ void ATriggerZoneActor::BeginPlay()
 void ATriggerZoneActor::OnTriggerEnter(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (OtherActor && (OtherActor != this))
-	{
-		
-	}
+	
 }
 
 void ATriggerZoneActor::PlaySoundOrAnimation(AActor* TriggeringActor)
