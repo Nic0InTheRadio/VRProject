@@ -22,6 +22,11 @@ public:
 	void OpenDoor();
 
 	UFUNCTION(BlueprintCallable)
-	void CloseDoor();
-	
+	bool CloseDoor();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnDoorOpened();
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnDoorClosed();
 };

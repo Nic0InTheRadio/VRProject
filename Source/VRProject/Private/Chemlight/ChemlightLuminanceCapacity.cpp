@@ -40,7 +40,16 @@ void UChemlightLuminanceCapacity::UpdateIntensity(float DeltaTime)
 		{
 			CurrentIntensityPercentage -= DeltaTime * IntensityLostPerSecond;
 		}
-		CurrentIntensityPercentage = FMath::Clamp(CurrentIntensityPercentage, 0.0f, 100.0f);
+		CurrentIntensityPercentage = FMath::Clamp(CurrentIntensityPercentage, 0.0f, MaxIntensity);
+	}
+}
+
+void UChemlightLuminanceCapacity::UpdateMaxIntensity(float percentageMaxIntensity)
+{
+	MaxIntensity = percentageMaxIntensity;
+	if (CurrentIntensityPercentage > MaxIntensity)
+	{
+		CurrentIntensityPercentage = MaxIntensity;
 	}
 }
 
