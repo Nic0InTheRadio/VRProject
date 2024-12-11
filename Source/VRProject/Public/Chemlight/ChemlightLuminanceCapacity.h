@@ -12,6 +12,8 @@ class VRPROJECT_API UChemlightLuminanceCapacity : public UActorComponent
 {
 	GENERATED_BODY()
 
+	UPROPERTY()
+	float MaxIntensity = 100.f;
 public:
 	// Sets default values for this component's properties
 	UChemlightLuminanceCapacity();
@@ -25,10 +27,10 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	float CurrentIntensityPercentage = 50.f;
 	
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float IntensityAddedPerSecondShaken = 25.f;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float IntensityLostPerSecond = 10.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -43,4 +45,7 @@ public:
 
 	UFUNCTION()
 	void UpdateIntensity(float DeltaTime);
+
+	UFUNCTION(BlueprintCallable)
+	void UpdateMaxIntensity(float percentageMaxIntensity);
 };
