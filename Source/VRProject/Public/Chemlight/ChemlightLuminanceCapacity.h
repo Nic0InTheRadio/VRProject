@@ -23,9 +23,8 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
-
 	UPROPERTY(BlueprintReadOnly)
-	float CurrentIntensityPercentage = 50.f;
+	float CurrentIntensityPercentage = 0.f;
 	
 	UPROPERTY(EditAnywhere,BlueprintReadWrite)
 	float IntensityAddedPerSecondShaken = 25.f;
